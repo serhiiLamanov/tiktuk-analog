@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react"
+import { Link } from "react-router-dom";
 import "../style/post.css"
 
 export default function TrendingFeed(){
@@ -47,7 +48,7 @@ export default function TrendingFeed(){
                     <video src={item.videoUrl} loop onCanPlay={canPlay}></video>
                     <div className="post-sidebar">
                         <h2>{item.text}</h2>
-                        <p>{item.authorMeta.name}<img src={item.authorMeta.avatar}></img></p>
+                        <Link to={"/users/"+item.authorMeta.id}>{item.authorMeta.name}<img src={item.authorMeta.avatar}></img></Link>
                         <p>{item.hashtags.map(tag => '#'+tag.name).join()}</p>
                         <div className="post-sidebar__button">
                             <span className="material-icons"> favorite_border </span>
